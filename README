@@ -2,27 +2,43 @@ A collection of miscellaneous shell scripts:
 
 
 backup-home.sh
-
-* backup home folder to an external media made easy
+==============
+* backup users's home folder to an external media made easy
 * EDIT THE PATH VARIABLE BEFORE USE! 
 
-backup-root.sh
 
+backup-root.sh
+==============
 * backup root folder to an external media made easy
 * EDIT THE PATH VARIABLE BEFORE USE! 
 
-detoxify.sh
 
+detoxify.sh
+===========
 * remove special chars from filenames recursively
 
-pdfchecker.sh
 
+pdfchecker.sh
+=============
 * check for PDF consistency recursively
 
-svncreate.sh
 
+svncreate.sh
+============
 * create subversion repository
-* EDIT THE PATH VARIABLE BEFORE USE! 
+* EDIT THE PATH VARIABLE BEFORE USE!
+
+
+restore-root.sh
+===============
+* restore root folder from an external media made easy
+* ATTENTION - destructive operations!
+
+
+restore-home.sh
+===============
+* restore user's home folder from an external media made easy
+* ATTENTION - destructive operations!
 
 
 Distributed under the terms of the GNU General Public License v3

@@ -13,12 +13,12 @@
 #Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
 
 # change to match your backup media location!
-PATH='/media/PET'
+P='/media/PET'
 
-if [ -d "$PATH" ]
+if [ -d "$P" ]
 then
   cd /
-  sudo tar cvpzf "$PATH/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/mnt --exclude=/media --exclude=/dev /
+  sudo tar cvpzf "$P/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/mnt --exclude=/media --exclude=/dev /
 else
-  echo "Invalid folder: $PATH\n"
+  echo "Invalid folder: $P\n"
 fi
