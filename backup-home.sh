@@ -9,7 +9,7 @@
 # See the GNU General Public License for more details.
 
 # change to match your backup media location!
-BACKUP='/media/PET'
+PATH='/media/PET'
 
 cd
-sudo tar -cvpzf "$BACKUP/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
+sudo tar cvpzf "$PATH/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .

@@ -10,7 +10,7 @@
 
 if [ $# -eq 0 ]
 then
-  echo "\nFixes filenames recursively.\n\nSyntax: $(basename $0) file/folder\n"
+  echo "\nFixes filenames recursively.\n\nSyntax: $(basename $0) folder\n"
   exit 1
 else
   if [ -n "$1" ]
@@ -19,7 +19,7 @@ else
     then
       cd "$1"
     else
-      echo Invalid parameter: $1 !
+      echo "Invalid folder: $1"
       exit 1
     fi
   fi
@@ -27,25 +27,25 @@ fi
 which detox > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo Installing detox package...
+  echo "Installing detox package...\n"
   sudo apt-get install detox
 fi
 which detox > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo detox not installed!
+  echo "detox not installed!\n"
   exit 1
 fi
 for i in *
 do
   if [ -d "$i" ] 
   then
-    echo Recursing to directory: "$i"
+    echo "Recursing into directory: $i"
     $0 "$i"
   fi
   if [ -f "$i" ]
   then
-    echo Renaming: "$i"
+    echo "Renaming: $i"
     detox -s utf_8 "$i" >/dev/null 2>&1
   fi
 done
@@ -54,12 +54,12 @@ for i in *
 do
   if [ -d "$i" ] 
   then
-    echo Recursing to directory: "$i"
+    echo "Recursing into directory: $i"
     $0 "$i"
   fi
   if [ -f "$i" ]
   then
-    echo Renaming: "$i"
+    echo "Renaming: $i"
     detox -s lower "$i" >/dev/null 2>&1
   fi
 done

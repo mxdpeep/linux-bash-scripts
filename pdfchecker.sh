@@ -10,7 +10,7 @@
 
 if [ $# -eq 0 ]
 then
-  echo "\nChecks validity of PDF files.\n\nSyntax: $(basename $0) folder\n"
+  echo "\nChecks validity of PDF files recursively.\n\nSyntax: $(basename $0) folder\n"
   exit 1
 else
   if [ -n "$1" ]
@@ -19,7 +19,7 @@ else
     then
       cd "$1"
     else
-      echo Invalid folder: "$1"
+      echo "Invalid folder: $1"
       exit 1
     fi
   fi
@@ -27,26 +27,33 @@ fi
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo Installing xpdf-utils package...
+  echo "Installing xpdf-utils package...\n"
   sudo apt-get install xpdf-utils
 fi
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo xpdf-utils not installed!
+  echo "xpdf-utils not installed!\n"
   exit 1
 fi
-for file in `ls -1 $1/* 2>/dev/null`
+for i in *
 do
-  if [ -f "$file" ]
+  if [ -d "$i" ] 
   then
-    /usr/bin/pdfinfo "$file" > /dev/null 2>&1
+    echo "Recursing into directory: $i"
+    $0 "$i"
+  fi
+  if [ -f "$i" ]
+  then
+    echo "Checking: $i"
+    /usr/bin/pdfinfo "$i" > /dev/null 2>&1
     if [ $? -ne 0 ]
     then
-      echo "Renamed file: $file"
-      mv "$file" "Invalid-PDF-$file"
+      echo "Invalid file: $i"
+      mv "$i" "invalid-pdf-$i"
     fi
   fi
 done
+sync
 echo "Done."
 exit 0

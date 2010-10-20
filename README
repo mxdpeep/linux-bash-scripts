@@ -1,2 +1,36 @@
-A collection of miscellaneous shell scripts.
+A collection of miscellaneous shell scripts:
 
+
+backup-home.sh
+
+* backup home folder to an external media made easy
+* EDIT THE PATH VARIABLE BEFORE USE! 
+
+backup-root.sh
+
+* backup root folder to an external media made easy
+* EDIT THE PATH VARIABLE BEFORE USE! 
+
+detoxify.sh
+
+* remove special chars from filenames recursively
+
+pdfchecker.sh
+
+* check for PDF consistency recursively
+
+svncreate.sh
+
+* create subversion repository
+* EDIT THE PATH VARIABLE BEFORE USE! 
+
+
+Distributed under the terms of the GNU General Public License v3
+
+These programs are distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
+WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
+OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
+See the GNU General Public License for more details.
+
+Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.

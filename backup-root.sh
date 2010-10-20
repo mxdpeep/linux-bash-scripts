@@ -9,7 +9,7 @@
 # See the GNU General Public License for more details.
 
 # change to match your backup media location!
-BACKUP='/media/PET'
+PATH='/media/PET'
 
 cd /
-sudo tar -cvpzf "$BACKUP/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/mnt --exclude=/media --exclude=/dev / 2>/dev/null
+sudo tar cvpzf "$PATH/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/mnt --exclude=/media --exclude=/dev /
