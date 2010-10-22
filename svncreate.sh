@@ -50,12 +50,12 @@ fi
 
 # setup svn repository
 sudo svnadmin create "$P/$1"
-sudo chown -R www-data:subversion "$P/$1" 2>/dev/null
+sudo chown -R www-data:subversion "$P/$1"
 if [ $? -eq 1 ]
 then
   echo "Warning: ownership change failed!\n"
 fi
-sudo chmod -R g+rws "$P/$1" 2>/dev/null
+sudo chmod -R g+rws "$P/$1"
 
 # restart Apache
 sudo /etc/init.d/apache2 force-reload 2>/dev/null
