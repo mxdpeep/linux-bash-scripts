@@ -40,6 +40,10 @@ restore-home.sh
 * restore user's home folder from an external media made easy
 * ATTENTION - destructive operations!
 
+sslcreate.sh
+============
+* create and setup self-signed SSL certificate for Apache2
+
 
 Distributed under the terms of the GNU General Public License v3
 
