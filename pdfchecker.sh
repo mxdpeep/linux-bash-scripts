@@ -10,6 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
 # check syntax
 if [ $# -eq 0 ]
 then
@@ -27,6 +28,7 @@ then
   fi
 fi
 
+
 # check installed app
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
@@ -41,6 +43,7 @@ then
   exit 1
 fi
 
+
 # recurse any directories first
 for i in *
 do
@@ -50,6 +53,7 @@ do
     $0 "$i"
   fi
 done
+
 
 # check pdf files (or recurse .pdf directories)
 for i in *.pdf

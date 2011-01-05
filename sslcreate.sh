@@ -10,6 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
 cd
 sudo openssl genrsa -des3 -out server.key 4096
 sudo openssl rsa -in server.key -out server.key.insecure
@@ -20,4 +21,4 @@ sudo openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.
 sudo cp server.crt /etc/ssl/certs
 sudo cp server.key /etc/ssl/private
 sudo a2enmod ssl
-echo "\nmodify /etc/apache2/sites-available/default and restart Apache2:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"
+echo "\nModify /etc/apache2/sites-available/default and restart Apache:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"

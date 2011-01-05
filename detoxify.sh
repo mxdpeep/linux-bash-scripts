@@ -10,6 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
 # check syntax
 if [ $# -eq 0 ]
 then
@@ -28,6 +29,7 @@ else
   fi
 fi
 
+
 # check installed app
 which detox > /dev/null 2>&1
 if [ $? -eq 1 ]
@@ -42,6 +44,7 @@ then
   exit 1
 fi
 
+
 # recurse any folders and execute detox 1st round
 for i in *
 do
@@ -52,12 +55,11 @@ do
   fi
   if [ -f "$i" ]
   then
-# You may uncomment the following line to be more verbose...
-#    echo "Renaming: $i"
     detox -s utf_8 "$i" >/dev/null 2>&1
   fi
 done
 sync
+
 
 # recurse any folders and execute detox 2nd round
 for i in *
@@ -69,8 +71,6 @@ do
   fi
   if [ -f "$i" ]
   then
-# You may uncomment the following line to be more verbose...
-#    echo "Renaming: $i"
     detox -s lower "$i" >/dev/null 2>&1
   fi
 done

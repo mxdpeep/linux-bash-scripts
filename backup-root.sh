@@ -9,11 +9,11 @@
 # WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
-#
-#Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
+
 
 # change to match your backup media location!
-P='/media/PET'
+P='/media/backup'
+
 
 if [ -d "$P" ]
 then

@@ -1,56 +1,59 @@
-A collection of miscellaneous shell scripts:
+A collection of miscellaneous Linux shell scripts:
 
 
 backup-home.sh
-==============
-* backup users's home folder to an external media made easy
-* EDIT THE PATH VARIABLE BEFORE USE! 
-
+=============
+* backup user's home folder to an external media
+* useful for weekly backups
+* EDIT THE BACKUP PATH VARIABLE BEFORE USE! 
 
 backup-root.sh
-==============
-* backup root folder to an external media made easy
-* EDIT THE PATH VARIABLE BEFORE USE! 
-
+============
+* backup root folder to an external media
+* useful for weekly backups
+* EDIT THE BACKUP PATH VARIABLE BEFORE USE! 
 
 detoxify.sh
-===========
+=========
 * remove special chars from filenames recursively
+* rename to lower filenames recursively
 
+kill-chrome-profile.sh
+=================
+* kill current user's Chrome profile
 
 pdfchecker.sh
-=============
-* check for PDF consistency recursively
-
-
-svncreate.sh
-============
-* create subversion repository
-* EDIT THE PATH VARIABLE BEFORE USE!
-
-
-restore-root.sh
-===============
-* restore root folder from an external media made easy
-* ATTENTION - destructive operations!
-
+===========
+* check PDF validity recursively
+* rename invalid files
 
 restore-home.sh
-===============
-* restore user's home folder from an external media made easy
-* ATTENTION - destructive operations!
+==============
+* restore user's home folder from an external media
+* ATTENTION - destructive operation!
+
+restore-root.sh
+=============
+* restore root folder from an external media
+* ATTENTION - destructive operation!
 
 sslcreate.sh
-============
+==========
 * create and setup self-signed SSL certificate for Apache2
 
+svncreate.sh
+==========
+* create subversion repository
+* EDIT THE SVN PATH VARIABLE BEFORE USE!
 
-Distributed under the terms of the GNU General Public License v3
 
-These programs are distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
-WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
-OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
-See the GNU General Public License for more details.
+# Distributed under the terms of the GNU General Public License v3
+#
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
+# WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
+# OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
+# See the GNU General Public License for more details.
 
-Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.

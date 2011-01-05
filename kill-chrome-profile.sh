@@ -11,14 +11,4 @@
 # See the GNU General Public License for more details.
 
 
-# change this to match your backup media location!
-P='/media/backup'
-
-
-if [ -d "$P" ]
-then
-  cd ~
-  sudo tar cvpzf "$P/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
-else
-  echo "Invalid folder: $P\n"
-fi
+rm -rf ~/.config/google-chrome/Default

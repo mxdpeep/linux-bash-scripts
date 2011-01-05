@@ -10,11 +10,14 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
 if [ -z "$2" ]
   then
   echo "\nRestores the partition from backup. CAUTION - ALL DATA WILL BE ERASED!\n\nSyntax: $(basename $0) <partition> <backup_file>\nExample: $(basename $0) sda1 root-backup-10.10.2010.tar.gz\n"
   exit 1
 fi
+
+
 if [ -f "$2" ]
 then
   sudo mount -t ext4 "/dev/$1" "/mnt/$1"
