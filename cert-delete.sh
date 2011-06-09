@@ -10,6 +10,14 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+# check syntax
+if [ -z "$1" ]
+then
+  echo "\nSyntax: $(basename $0) <name>\n"
+  exit 1
+fi
+
+# delete certificate by name
 certutil -D -n $1 -d sql:$HOME/.pki/nssdb
 
 exit 0

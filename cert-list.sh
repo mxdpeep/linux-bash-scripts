@@ -10,6 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+# list certificates from local database
 certutil -L -d sql:$HOME/.pki/nssdb
 
 exit 0
