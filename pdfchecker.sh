@@ -1,15 +1,14 @@
 #!/bin/sh
 #
-# Distributed under the terms of the GNU General Public License v3
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
 # WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
-
 
 # check syntax
 if [ $# -eq 0 ]
@@ -28,7 +27,6 @@ then
   fi
 fi
 
-
 # check installed app
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
@@ -43,7 +41,6 @@ then
   exit 1
 fi
 
-
 # recurse any directories first
 for i in *
 do
@@ -53,7 +50,6 @@ do
     $0 "$i"
   fi
 done
-
 
 # check pdf files (or recurse .pdf directories)
 for i in *.pdf
@@ -74,6 +70,8 @@ do
     fi
   fi
 done
+
 sync
+
 echo "Done."
 exit 0

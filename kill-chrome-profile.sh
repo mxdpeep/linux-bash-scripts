@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Distributed under the terms of the GNU General Public License v3
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
 # Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
 #
@@ -10,5 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
-
 rm -rf ~/.config/google-chrome/Default
+
+echo "Done."
+exit 0

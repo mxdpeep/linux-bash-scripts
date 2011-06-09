@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Distributed under the terms of the GNU General Public License v3
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
 # Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
 #
@@ -9,7 +9,6 @@
 # WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
-
 
 # check syntax
 if [ $# -eq 0 ]
@@ -29,7 +28,6 @@ else
   fi
 fi
 
-
 # check installed app
 which detox > /dev/null 2>&1
 if [ $? -eq 1 ]
@@ -44,7 +42,6 @@ then
   exit 1
 fi
 
-
 # recurse any folders and execute detox 1st round
 for i in *
 do
@@ -58,8 +55,6 @@ do
     detox -s utf_8 "$i" >/dev/null 2>&1
   fi
 done
-sync
-
 
 # recurse any folders and execute detox 2nd round
 for i in *
@@ -74,6 +69,8 @@ do
     detox -s lower "$i" >/dev/null 2>&1
   fi
 done
+
 sync
+
 echo "Done."
 exit 0
