@@ -1,51 +1,79 @@
+Linux shell scripts collection
+==============================
+
+
 backup-home.sh
-=============
+==============
 * backup user's home folder to an external media
 * useful for weekly backups
-* EDIT THE BACKUP PATH VARIABLE BEFORE USE! 
+* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
 
 backup-root.sh
-============
+==============
 * backup root folder to an external media
 * useful for weekly backups
-* EDIT THE BACKUP PATH VARIABLE BEFORE USE! 
+* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
+
+backup-www.sh
+=============
+* backup ~/www folder to an external media
+* useful for weekly backups
+* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
+
+cert-delete.sh
+==============
+
+cert-import.sh
+==============
+
+cert-list.sh
+============
 
 detoxify.sh
-=========
+===========
 * remove special chars from filenames recursively
 * rename to lower filenames recursively
 
-kill-chrome-profile.sh
-=================
-* kill current user's Chrome profile
+fix-chrome-profile.sh
+=====================
+* fix current user's Chrome profile after crash
+
+delete-chrome-profile.sh
+========================
+* delete current user's Chrome profile
 
 pdfchecker.sh
-===========
+=============
 * check PDF validity recursively
 * rename invalid files
 
 restore-home.sh
-==============
+===============
 * restore user's home folder from an external media
 * ATTENTION - destructive operation!
 
 restore-root.sh
-=============
+===============
 * restore root folder from an external media
 * ATTENTION - destructive operation!
 
+skype.sh
+========
+* run Skype with video support
+
 sslcreate.sh
-==========
+============
 * create and setup self-signed SSL certificate for Apache2
 
 svncreate.sh
-==========
+============
 * create subversion repository
 * EDIT THE SVN PATH VARIABLE BEFORE USE!
 
-# Distributed under the terms of the GNU General Public License v3.
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+#
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR

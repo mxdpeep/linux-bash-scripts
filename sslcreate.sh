@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2011.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -24,4 +24,5 @@ sudo a2enmod ssl
 
 echo "\nModify /etc/apache2/sites-available/default and restart Apache:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"
 
+echo "Done."
 exit 0

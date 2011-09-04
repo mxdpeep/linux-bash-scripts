@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #
-# Distributed under the terms of the GNU General Public License v3
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2010.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -11,7 +11,7 @@
 # See the GNU General Public License for more details.
 
 
-# change this to match your backup media location!
+# CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
 P='/media/backup'
 
 
@@ -21,4 +21,8 @@ then
   sudo tar cvpzf "$P/www-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
 else
   echo "Invalid folder: $P\n"
+  exit 1
 fi
+
+echo "Done."
+exit 0

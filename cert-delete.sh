@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2011.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -20,4 +20,5 @@ fi
 # delete certificate by name
 certutil -D -n $1 -d sql:$HOME/.pki/nssdb
 
+echo "Done."
 exit 0

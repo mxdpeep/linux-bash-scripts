@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2011.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -19,13 +19,10 @@ fi
 if [ -f "$1" ]
 then
   cd ~
-
   sudo rm -rf .[^.]*
   sudo rm -rf ..*
   sudo tar xvpzf $1
-
   sync
-
   echo "\nRelog now.\n"
 else
   echo "Invalid file: $1"

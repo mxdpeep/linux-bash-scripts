@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz No Rights Reserved 2011.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -18,19 +18,13 @@ fi
 
 if [ -f "$2" ]
 then
-
   sudo mount -t ext4 "/dev/$1" "/mnt/$1"
-
   cd "/mnt/$1"
-
   sudo rm -rf *
   sudo tar xvpzf $2
   sudo mkdir proc media lost+found sys mnt media dev
-
   sync
-
   sudo umount "/mnt/$1"
-
   echo "\nReboot the machine now.\n"
 else
   echo "Invalid file: $2"
