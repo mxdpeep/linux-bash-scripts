@@ -10,4 +10,15 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
+which skype > /dev/null 2>&1
+if [ $? -eq 1 ]
+then
+  echo "skype is not installed!\n"
+  exit 1
+fi
+
 LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so skype
+
+echo "Done."
+exit 0

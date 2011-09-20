@@ -4,71 +4,93 @@ Linux shell scripts collection
 
 backup-home.sh
 ==============
-* backup user's home folder to an external media
-* useful for weekly backups
-* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
+
+Backup user's home folder to an external media, useful for weekly backups. EDIT BACKUP PATH VARIABLE BEFORE FIRST USE!
+
 
 backup-root.sh
 ==============
-* backup root folder to an external media
-* useful for weekly backups
-* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
+
+Backup root folder to an external media, useful for weekly backups. EDIT BACKUP PATH VARIABLE BEFORE FIRST USE!
+
 
 backup-www.sh
 =============
-* backup ~/www folder to an external media
-* useful for weekly backups
-* EDIT THE BACKUP PATH VARIABLE BEFORE USE!
+
+Backup ~/www folder to an external media, useful for weekly backups. EDIT BACKUP PATH VARIABLE BEFORE FIRST USE!
+
 
 cert-delete.sh
 ==============
 
+Delete local CA certificate.
+
+
 cert-import.sh
 ==============
+
+Import remote CA certificate.
+
 
 cert-list.sh
 ============
 
+List local CA certificates.
+
+
 detoxify.sh
 ===========
-* remove special chars from filenames recursively
-* rename to lower filenames recursively
+
+Remove special chars from filenames recursively and rename to lower filenames recursively.
+
 
 fix-chrome-profile.sh
 =====================
-* fix current user's Chrome profile after crash
+
+Fix current user's Chrome profile after Google Chrome crash.
+
 
 delete-chrome-profile.sh
 ========================
-* delete current user's Chrome profile
 
-pdfchecker.sh
-=============
-* check PDF validity recursively
-* rename invalid files
+Delete current user's Chrome profile after Google Chrome crash. ATTENTION - destructive operation!
+
+
+pdf-check.sh
+============
+
+Check PDF files for validity recursively, rename invalid files.
+
 
 restore-home.sh
 ===============
-* restore user's home folder from an external media
-* ATTENTION - destructive operation!
+
+Restore user's home folder from an external media. ATTENTION - destructive operation!
+
 
 restore-root.sh
 ===============
-* restore root folder from an external media
-* ATTENTION - destructive operation!
+
+Restore root folder from an external media ATTENTION - destructive operation!
+
 
 skype.sh
 ========
-* run Skype with video support
 
-sslcreate.sh
-============
-* create and setup self-signed SSL certificate for Apache2
+Run Skype with video support.
 
-svncreate.sh
-============
-* create subversion repository
-* EDIT THE SVN PATH VARIABLE BEFORE USE!
+
+ssl-create.sh
+=============
+
+Create and setup self-signed SSL certificate for Apache2.
+
+
+svn-create.sh
+=============
+
+Create subversion repository. EDIT SVN PATH VARIABLE BEFORE FIRST USE!
+
 
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.

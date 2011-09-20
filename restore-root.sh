@@ -10,8 +10,9 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
+
 if [ -z "$2" ]
-  then
+then
   echo "\nRestores the partition from backup. CAUTION - ALL DATA WILL BE ERASED!\n\nSyntax: $(basename $0) <partition> <backup_file>\nExample: $(basename $0) sda1 root-backup-10.10.2010.tar.gz\n"
   exit 1
 fi
@@ -25,7 +26,7 @@ then
   sudo mkdir proc media lost+found sys mnt media dev
   sync
   sudo umount "/mnt/$1"
-  echo "\nReboot the machine now.\n"
+  echo "\nReboot the machine now!\n"
 else
   echo "Invalid file: $2"
   exit 1

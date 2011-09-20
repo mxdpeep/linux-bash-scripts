@@ -10,7 +10,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
-# remove Chrome profile
+
 rm -rf ~/.config/google-chrome/Default
 
 echo "Done."
