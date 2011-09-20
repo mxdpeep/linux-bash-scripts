@@ -15,14 +15,14 @@
 which pmi > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Installing powermanagement-interface package...\n"
+  echo -e "Installing powermanagement-interface package...\n"
   sudo apt-get install powermanagement-interface
 fi
 
 which powermanagement-interface > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "powermanagement-interface not installed!\n"
+  echo -e "powermanagement-interface not installed!\n"
   exit 1
 fi
 

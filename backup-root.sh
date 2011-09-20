@@ -20,7 +20,7 @@ then
   cd /
   sudo tar cvpzf "$P/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/dev /
 else
-  echo "Invalid folder: $P\n"
+  echo -e "Invalid folder: $P\n"
   exit 1
 fi
 

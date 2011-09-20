@@ -14,7 +14,7 @@
 # check syntax
 if [ $# -eq 0 ]
 then
-  echo "\nChecks validity of PDF files recursively.\n\nSyntax: $(basename $0) <folder>\n"
+  echo -e "\nCheck validity of PDF files recursively.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
 if [ -n "$1" ]
@@ -23,7 +23,7 @@ then
   then
     cd "$1"
   else
-    echo "Invalid folder: $1\n"
+    echo -e "Invalid folder: $1\n"
     exit 1
   fi
 fi
@@ -32,13 +32,13 @@ fi
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Installing xpdf-utils package...\n"
+  echo -e "Installing xpdf-utils package...\n"
   sudo apt-get install xpdf-utils
 fi
 which pdfinfo > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "xpdf-utils is not installed!\n"
+  echo -e "Xpdf-utils are not installed!\n"
   exit 1
 fi
 

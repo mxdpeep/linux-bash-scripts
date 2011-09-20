@@ -11,21 +11,14 @@
 # See the GNU General Public License for more details.
 
 
-# check installed app
-which pmi > /dev/null 2>&1
+which skype > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo -e "Installing powermanagement-interface package...\n"
-  sudo apt-get install powermanagement-interface
-fi
-
-which powermanagement-interface > /dev/null 2>&1
-if [ $? -eq 1 ]
-then
-  echo -e "Powermanagement-interface is not installed!\n"
+  echo -e "Skype is not installed!\n"
   exit 1
 fi
 
-sync
+LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so skype
 
-pmi action hibernate
+echo "Done."
+exit 0

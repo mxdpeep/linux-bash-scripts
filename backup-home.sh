@@ -20,7 +20,7 @@ then
   cd ~
   sudo tar cvpzf "$P/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
 else
-  echo "Invalid folder: $P\n"
+  echo -e "Invalid folder: $P\n"
   exit 1
 fi
 

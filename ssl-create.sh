@@ -15,13 +15,13 @@
 which openssl > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Installing openssl package...\n"
+  echo -e "Installing openssl package...\n"
   sudo apt-get install openssl
 fi
 which openssl > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "openssl is not installed!\n"
+  echo -e "Openssl is not installed!\n"
   exit 1
 fi
 
@@ -37,7 +37,7 @@ sudo cp server.crt /etc/ssl/certs
 sudo cp server.key /etc/ssl/private
 sudo a2enmod ssl
 
-echo "\nModify /etc/apache2/sites-available/default-ssl and restart Apache:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"
+echo -e "\nModify /etc/apache2/sites-available/default-ssl and restart Apache:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"
 
 echo "Done."
 exit 0

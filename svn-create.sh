@@ -18,7 +18,7 @@ P='/home/svn'
 # check syntax
 if [ -z "$1" ]
 then
-  echo "\nCreates a new SVN repository.\n\nSyntax: $(basename $0) <folder>\n"
+  echo -e "\nCreates a new SVN repository.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
 
@@ -32,21 +32,21 @@ fi
 which svnadmin > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Subversion is not installed!\n"
+  echo -e "Subversion is not installed!\n"
   exit 1
 fi
 
 # check path and create folder
 if [ -d "$P/$1" ]
 then
-  echo "Folder $P/$1 already exists!\n"
+  echo -e "Folder $P/$1 already exists!\n"
   exit 1
 fi
 if [ -d "$P" ]
 then
   sudo mkdir "$P/$1"
 else
-  echo "Invalid folder: $P\n"
+  echo -e "Invalid folder: $P\n"
   exit 1
 fi
 
@@ -55,7 +55,7 @@ sudo svnadmin create "$P/$1"
 sudo chown -R www-data:subversion "$P/$1"
 if [ $? -eq 1 ]
 then
-  echo "Warning: ownership change failed!\n"
+  echo -e "Warning: ownership change failed!\n"
 fi
 sudo chmod -R g+rws "$P/$1"
 
@@ -63,7 +63,7 @@ sudo chmod -R g+rws "$P/$1"
 sudo /etc/init.d/apache2 force-reload 2>/dev/null
 if [ $? -eq 1 ]
 then
-  echo "Warning: is Apache 2 installed?\n"
+  echo -e "Warning: is Apache 2 installed?\n"
 fi
 
 echo "Done."

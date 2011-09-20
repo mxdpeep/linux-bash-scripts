@@ -14,7 +14,7 @@
 # check syntax
 if [ -z "$1" ]
 then
-  echo "\nSyntax: $(basename $0) <name>\n"
+  echo -e "\nDelete local CA certificate.\n\nSyntax: $(basename $0) <name>\n"
   exit 1
 fi
 
@@ -22,13 +22,13 @@ fi
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Installing libnss3-tools package...\n"
+  echo -e "Installing libnss3-tools package...\n"
   sudo apt-get install libnss3-tools
 fi
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "libnss3-tools is not installed!\n"
+  echo -e "Libnss3-tools are not installed!\n"
   exit 1
 fi
 

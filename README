@@ -1,6 +1,5 @@
 Linux shell scripts collection
-==============================
-
+------------------------------
 
 backup-home.sh
 ==============
@@ -74,8 +73,8 @@ restore-root.sh
 Restore root folder from an external media ATTENTION - destructive operation!
 
 
-skype.sh
-========
+run-skype.sh
+============
 
 Run Skype with video support.
 
@@ -83,13 +82,19 @@ Run Skype with video support.
 ssl-create.sh
 =============
 
-Create and setup self-signed SSL certificate for Apache2.
+Setup self-signed SSL certificate for Apache2.
 
 
 svn-create.sh
 =============
 
-Create subversion repository. EDIT SVN PATH VARIABLE BEFORE FIRST USE!
+Setup subversion repository. EDIT SVN PATH VARIABLE BEFORE FIRST USE!
+
+
+vhost-create.sh
+===============
+
+Setup virtual host configuration file. EDIT VARIABLES BEFORE FIRST USE!
 
 
 #

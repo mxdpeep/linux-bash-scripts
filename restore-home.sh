@@ -13,7 +13,7 @@
 
 if [ -z "$1" ]
 then
-  echo "\nRestores the home folder from backup. CAUTION - ALL CURRENT HOME FOLDER DATA WILL BE ERASED!\n\nSyntax: $(basename $0) <partition> <backup_file>\nExample: $(basename $0) home-backup-10.10.2010.tar.gz\n"
+  echo -e "\nRestores the home folder from backup. CAUTION - ALL CURRENT HOME FOLDER DATA WILL BE ERASED!\n\nSyntax: $(basename $0) <partition> <backup_file>\nExample: $(basename $0) home-backup-10.10.2010.tar.gz\n"
   exit 1
 fi
 
@@ -24,7 +24,7 @@ then
   sudo rm -rf ..*
   sudo tar xvpzf $1
   sync
-  echo "\nRelog now!\n"
+  echo -e "\nRelog now!\n"
 else
   echo "Invalid file: $1"
   exit 1
