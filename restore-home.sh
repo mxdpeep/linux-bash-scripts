@@ -19,6 +19,8 @@ then
   exit 1
 fi
 
+# restore home
+
 if [ -f "$1" ]
 then
   cd ~

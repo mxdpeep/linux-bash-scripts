@@ -13,14 +13,14 @@
 
 # check for installed app
 
-which openssl > /dev/null 2>&1
+which openssl >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Installing openssl package...\n"
   sudo apt-get install openssl
 fi
 
-which openssl > /dev/null 2>&1
+which openssl >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Openssl is not installed!\n"

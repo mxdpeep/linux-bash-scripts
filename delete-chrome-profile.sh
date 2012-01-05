@@ -12,6 +12,8 @@
 # See the GNU General Public License for more details.
 
 
+# CAUTION - PROFILE WILL BE ERASED!
+
 rm -rf ~/.config/google-chrome/Default
 
 echo -e "\nDone.\n"

@@ -20,7 +20,7 @@ P='/home/svn'
 
 if [ -z "$1" ]
 then
-  echo -e "\nCreates a new SVN repository.\n\nSyntax: $(basename $0) <folder>\n"
+  echo -e "\nCreates new Subversion repository.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
 

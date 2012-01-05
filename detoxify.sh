@@ -12,7 +12,7 @@
 # See the GNU General Public License for more details.
 
 
-# check for syntax
+# check syntax
 
 if [ $# -eq 0 ]
 then
@@ -39,6 +39,7 @@ then
   echo "Installing detox package..."
   sudo apt-get install detox
 fi
+
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then

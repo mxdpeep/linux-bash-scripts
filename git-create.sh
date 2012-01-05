@@ -13,9 +13,24 @@
 
 
 # check syntax
+
 if [ -z "$1" ]
 then
-  echo -e "\nCreates a new git repository.\n\nSyntax: $(basename $0) <name>\n"
+  echo -e "\nCreates new git repository.\n\nSyntax: $(basename $0) <name>\n"
+  exit 1
+fi
+
+which git >/dev/null 2>&1
+if [ $? -eq 1 ]
+then
+  echo "Installing git-core package..."
+  sudo apt-get install git-core
+fi
+
+which git >/dev/null 2>&1
+if [ $? -eq 1 ]
+then
+  echo -e "git is not installed!\n"
   exit 1
 fi
 

@@ -19,7 +19,7 @@ P='/media/backup'
 WWW='~/www'
 
 
-# backup if folder exists
+# backup if www folder exists
 
 if [ -d "$P" ]
 then

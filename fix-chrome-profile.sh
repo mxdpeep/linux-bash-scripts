@@ -12,7 +12,11 @@
 # See the GNU General Public License for more details.
 
 
+# kill running Chrome
+
 killall chrome
+
+# try to fix SQLite
 
 file ~/.config/google-chrome/Default/* | grep SQLite | cut -d: -f1 |xargs -n1 -d '\n' sh -c 'sqlite3 "$0" .schema 2>&1 >/dev/null | grep -q "is locked" && {echo "fixing $0"; mv "$0" tmp.$$; cp tmp.$$ "$0"; rm tmp.$$;}'
 
