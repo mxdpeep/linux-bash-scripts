@@ -27,5 +27,7 @@ then
 fi
 
 sync
-
 pmi action suspend
+
+echo -e "\nDone.\n"
+exit 0

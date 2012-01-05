@@ -67,5 +67,5 @@ then
   echo -e "Warning: is Apache 2 installed?\n"
 fi
 
-echo "Done."
+echo -e "\nDone.\n"
 exit 0

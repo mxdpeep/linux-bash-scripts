@@ -30,5 +30,5 @@ else
   exit 1
 fi
 
-echo "Done."
+echo -e "\nDone.\n"
 exit 0

@@ -20,5 +20,5 @@ fi
 
 LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so skype
 
-echo "Done."
+echo -e "\nDone.\n"
 exit 0

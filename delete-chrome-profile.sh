@@ -2,7 +2,8 @@
 #
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #
-# Filip Oscadal <filip@mxd.cz> http://mxd.cz/ * No Rights Reserved 2011.
+# Filip Oscadal <filip@mxd.cz> http://mxd.cz/
+# No Rights Reserved 2012, feel free to modify, use and distribute.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
@@ -13,5 +14,5 @@
 
 rm -rf ~/.config/google-chrome/Default
 
-echo "Done."
+echo -e "\nDone.\n"
 exit 0

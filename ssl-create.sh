@@ -39,5 +39,5 @@ sudo a2enmod ssl
 
 echo -e "\nModify /etc/apache2/sites-available/default-ssl and restart Apache:\n\nSSLEngine on\nSSLCertificateFile /etc/ssl/certs/server.crt\nSSLCertificateKeyFile /etc/ssl/private/server.key\n"
 
-echo "Done."
+echo -e "\nDone.\n"
 exit 0
