@@ -27,10 +27,41 @@ fi
 
 DOMAIN=$1
 
-CONF="<VirtualHost *:80>\n  ServerName $DOMAIN\n  ServerAlias www.$DOMAIN\n  ServerAdmin $ADMIN\n  DocumentRoot $WWW_ROOT/$DOMAIN/trunk\n\n  <Directory $WWW_ROOT/$DOMAIN/trunk>\n    Options Indexes FollowSymLinks MultiViews\n    AllowOverride all\n    Order allow,deny\n    Allow from all\n  </Directory>\n\n  ErrorLog /var/log/apache2/$DOMAIN-error.log\n  CustomLog /var/log/apache2/$DOMAIN-access.log combined\n</VirtualHost>\n"
+sudo mkdir -p $WWW_ROOT/dev.$DOMAIN
 
-sudo mkdir -p $WWW_ROOT/$DOMAIN/trunk
-sudo echo -e $CONF > $VHOST_CONF/$DOMAIN
+CONF="<VirtualHost *:80>\n\
+  ServerName dev.$DOMAIN\n\
+  ServerAdmin $ADMIN\n\
+  DocumentRoot $WWW_ROOT/dev.$DOMAIN\n\n\
+  <Directory $WWW_ROOT/dev.$DOMAIN>\n\
+    Options Indexes FollowSymLinks MultiViews\n\
+    AllowOverride all\n\
+    Order allow,deny\n\
+    Allow from all\n\
+  </Directory>\n\n\
+  ErrorLog /var/log/apache2/dev.$DOMAIN-error.log\n\
+  CustomLog /var/log/apache2/dev.$DOMAIN-access.log combined\n\
+</VirtualHost>"
+
+sudo echo -e $CONF > $VHOST_CONF/dev.$DOMAIN
+
+beta mkdir -p $WWW_ROOT/beta.$DOMAIN
+
+CONF="<VirtualHost *:80>\n\
+  ServerName beta.$DOMAIN\n\
+  ServerAdmin $ADMIN\n\
+  DocumentRoot $WWW_ROOT/beta.$DOMAIN\n\n\
+  <Directory $WWW_ROOT/beta.$DOMAIN>\n\
+    Options Indexes FollowSymLinks MultiViews\n\
+    AllowOverride all\n\
+    Order allow,deny\n\
+    Allow from all\n\
+  </Directory>\n\n\
+  ErrorLog /var/log/apache2/beta.$DOMAIN-error.log\n\
+  CustomLog /var/log/apache2/beta.$DOMAIN-access.log combined\n\
+</VirtualHost>"
+
+sudo echo -e $CONF > $VHOST_CONF/beta.$DOMAIN
 
 sync
 sudo a2ensite $DOMAIN
