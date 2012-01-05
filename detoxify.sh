@@ -12,7 +12,8 @@
 # See the GNU General Public License for more details.
 
 
-# check syntax
+# check for syntax
+
 if [ $# -eq 0 ]
 then
   echo -e "\nFix filenames recursively.\n\nSyntax: $(basename $0) <folder>\n"
@@ -30,14 +31,15 @@ else
   fi
 fi
 
-# check installed app
-which detox > /dev/null 2>&1
+# check for installed app
+
+which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo "Installing detox package..."
   sudo apt-get install detox
 fi
-which detox > /dev/null 2>&1
+which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo "Detox is not installed!"
@@ -45,6 +47,7 @@ then
 fi
 
 # recurse any folders and execute detox 1st round
+
 for i in *
 do
   if [ -d "$i" ]
@@ -59,6 +62,7 @@ do
 done
 
 # recurse any folders and execute detox 2nd round
+
 for i in *
 do
   if [ -d "$i" ]

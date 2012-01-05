@@ -11,6 +11,8 @@
 # See the GNU General Public License for more details.
 
 
+# check syntax
+
 if [ -z "$2" ]
 then
   echo -e "\nRestores the partition from backup. CAUTION - ALL DATA WILL BE ERASED!\n\nSyntax: $(basename $0) <partition> <backup_file>\nExample: $(basename $0) sda1 root-backup-10.10.2010.tar.gz\n"

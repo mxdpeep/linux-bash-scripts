@@ -13,19 +13,22 @@
 
 
 # check syntax
+
 if [ -z "$1" ]
 then
   echo -e "\nDelete local CA certificate.\n\nSyntax: $(basename $0) <name>\n"
   exit 1
 fi
 
-# check installed app
+# check for installed app
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Installing libnss3-tools package...\n"
   sudo apt-get install libnss3-tools
 fi
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -34,6 +37,7 @@ then
 fi
 
 # delete certificate by name
+
 certutil -D -n $1 -d sql:$HOME/.pki/nssdb
 
 echo -e "\nDone.\n"

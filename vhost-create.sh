@@ -12,25 +12,55 @@
 # See the GNU General Public License for more details.
 
 
-# CHANGE THIS TO MATCH YOUR CONFIGURATION!
-ROOT_UID=0
+# CHANGE THESE TO MATCH YOUR CONFIGURATION!
+
 ADMIN=filip@mxd.cz
 VHOST_CONF=/etc/apache2/sites-available/
 WWW_ROOT=/home/www
 
 
 # check syntax
+
 if [ $# -eq 0 ]
 then
-  echo -e "\nCreate virtual host configuration file.\n\nSyntax: $(basename $0) <name>\n"
+  echo -e "\nCreate virtual host configuration file.\n\nSyntax: $(basename $0) <domain>\n"
   exit 1
 fi
 
 DOMAIN=$1
 
-sudo mkdir -p $WWW_ROOT/dev.$DOMAIN
+# create web folders and set rights
 
-CONF="<VirtualHost *:80>\n\
+sudo mkdir -p $WWW_ROOT/$DOMAIN
+sudo mkdir -p $WWW_ROOT/dev.$DOMAIN
+sudo mkdir -p $WWW_ROOT/beta.$DOMAIN
+
+sudo chown www-data:www-data $WWW_ROOT/$DOMAIN
+sudo chown www-data:www-data $WWW_ROOT/dev.$DOMAIN
+sudo chown www-data:www-data $WWW_ROOT/beta.$DOMAIN
+
+sudo chmod 0755 $WWW_ROOT/$DOMAIN
+sudo chmod 0755 $WWW_ROOT/dev.$DOMAIN
+sudo chmod 0755 $WWW_ROOT/beta.$DOMAIN
+
+# setup content
+
+CONF1="<VirtualHost *:80>\n\
+  ServerName $DOMAIN\n\
+  ServerAlias www.$DOMAIN\n\
+  ServerAdmin $ADMIN\n\
+  DocumentRoot $WWW_ROOT/$DOMAIN\n\n\
+  <Directory $WWW_ROOT/$DOMAIN>\n\
+    Options Indexes FollowSymLinks MultiViews\n\
+    AllowOverride all\n\
+    Order allow,deny\n\
+    Allow from all\n\
+  </Directory>\n\n\
+  ErrorLog /var/log/apache2/$DOMAIN-error.log\n\
+  CustomLog /var/log/apache2/$DOMAIN-access.log combined\n\
+</VirtualHost>"
+
+CONF2="<VirtualHost *:80>\n\
   ServerName dev.$DOMAIN\n\
   ServerAdmin $ADMIN\n\
   DocumentRoot $WWW_ROOT/dev.$DOMAIN\n\n\
@@ -44,11 +74,7 @@ CONF="<VirtualHost *:80>\n\
   CustomLog /var/log/apache2/dev.$DOMAIN-access.log combined\n\
 </VirtualHost>"
 
-sudo echo -e $CONF > $VHOST_CONF/dev.$DOMAIN
-
-beta mkdir -p $WWW_ROOT/beta.$DOMAIN
-
-CONF="<VirtualHost *:80>\n\
+CONF3="<VirtualHost *:80>\n\
   ServerName beta.$DOMAIN\n\
   ServerAdmin $ADMIN\n\
   DocumentRoot $WWW_ROOT/beta.$DOMAIN\n\n\
@@ -62,10 +88,18 @@ CONF="<VirtualHost *:80>\n\
   CustomLog /var/log/apache2/beta.$DOMAIN-access.log combined\n\
 </VirtualHost>"
 
-sudo echo -e $CONF > $VHOST_CONF/beta.$DOMAIN
+# write files
+
+sudo echo -e $CONF1 > $VHOST_CONF/$DOMAIN
+sudo echo -e $CONF2 > $VHOST_CONF/dev.$DOMAIN
+sudo echo -e $CONF3 > $VHOST_CONF/beta.$DOMAIN
 
 sync
-sudo a2ensite $DOMAIN
+
+
+# add sites and reload Apache
+
+sudo a2ensite $DOMAIN dev.$DOMAIN beta.$DOMAIN
 sudo /etc/init.d/apache2 graceful
 
 echo -e "\nDone.\n"

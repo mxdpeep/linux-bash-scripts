@@ -17,20 +17,23 @@ P='/home/svn'
 
 
 # check syntax
+
 if [ -z "$1" ]
 then
   echo -e "\nCreates a new SVN repository.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
 
-# check install app
-which svnadmin > /dev/null 2>&1
+# check for install app
+
+which svnadmin >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo "Installing subversion package..."
   sudo apt-get install subversion
 fi
-which svnadmin > /dev/null 2>&1
+
+which svnadmin >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Subversion is not installed!\n"
@@ -38,6 +41,7 @@ then
 fi
 
 # check path and create folder
+
 if [ -d "$P/$1" ]
 then
   echo -e "Folder $P/$1 already exists!\n"
@@ -52,6 +56,7 @@ else
 fi
 
 # setup svn repository
+
 sudo svnadmin create "$P/$1"
 sudo chown -R www-data:subversion "$P/$1"
 if [ $? -eq 1 ]
@@ -61,6 +66,7 @@ fi
 sudo chmod -R g+rws "$P/$1"
 
 # restart Apache
+
 sudo /etc/init.d/apache2 force-reload 2>/dev/null
 if [ $? -eq 1 ]
 then

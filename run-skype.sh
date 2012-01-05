@@ -11,12 +11,16 @@
 # See the GNU General Public License for more details.
 
 
-which skype > /dev/null 2>&1
+# check for installed app
+
+which skype >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Skype is not installed!\n"
   exit 1
 fi
+
+# run Skype incl. video
 
 LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so skype
 

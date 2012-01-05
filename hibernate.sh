@@ -12,15 +12,16 @@
 # See the GNU General Public License for more details.
 
 
-# check installed app
-which pmi > /dev/null 2>&1
+# check for installed app
+
+which pmi >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Installing powermanagement-interface package...\n"
   sudo apt-get install powermanagement-interface
 fi
 
-which powermanagement-interface > /dev/null 2>&1
+which powermanagement-interface >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Powermanagement-interface is not installed!\n"
@@ -28,6 +29,7 @@ then
 fi
 
 sync
+
 pmi action hibernate
 
 echo -e "\nDone.\n"

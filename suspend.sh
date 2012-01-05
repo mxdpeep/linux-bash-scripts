@@ -11,7 +11,8 @@
 # See the GNU General Public License for more details.
 
 
-# check installed app
+# check for installed app
+
 which pmi > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -27,6 +28,7 @@ then
 fi
 
 sync
+
 pmi action suspend
 
 echo -e "\nDone.\n"

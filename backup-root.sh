@@ -16,14 +16,10 @@
 P='/media/backup'
 
 
-if [ -d "$P" ]
-then
-  cd /
-  sudo tar cvpzf "$P/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/dev /
-else
-  echo -e "Invalid folder: $P\n"
-  exit 1
-fi
+# backup root filesystem
+
+cd /
+sudo tar cvpzf "$P/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/dev /
 
 echo -e "\nDone.\n"
 exit 0

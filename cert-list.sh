@@ -12,13 +12,15 @@
 # See the GNU General Public License for more details.
 
 
-# check installed app
+# check for installed app
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Installing libnss3-tools package...\n"
   sudo apt-get install libnss3-tools
 fi
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then

@@ -13,19 +13,22 @@
 
 
 # check syntax
+
 if [ -z "$1" ]
 then
   echo -e "\nImport remote CA certificate.\n\nSyntax: $(basename $0) <remotehost> [<port>]\n"
   exit 1
 fi
 
-# check installed app
+# check for installed app
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo -e "Installing libnss3-tools package...\n"
   sudo apt-get install libnss3-tools
 fi
+
 which certutil > /dev/null 2>&1
 if [ $? -eq 1 ]
 then
