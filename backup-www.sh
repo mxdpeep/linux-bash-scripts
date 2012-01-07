@@ -13,14 +13,16 @@
 
 
 # CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
+
 P='/media/backup'
 
+
 # CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
+
 WWW='~/www'
 
 
 # backup if www folder exists
-
 if [ -d "$P" ]
 then
   cd $WWW

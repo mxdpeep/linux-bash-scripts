@@ -13,7 +13,6 @@
 
 
 # check syntax
-
 if [ -z "$3" ]
 then
   echo -e "\nPing network range\n\nSyntax: $(basename $0) <subnet> <low> <hi>\nExample: $(basename $0) 192.168.1 1 10\n\n"
@@ -21,13 +20,11 @@ then
 fi
 
 # setup variables
-
 NETWORK=$1
 LO=$2
 HI=$3
 
 # ping function
-
 is_alive_ping()
 {
   local IP="$NETWORK.$1"
@@ -38,6 +35,7 @@ is_alive_ping()
 
 echo -e "\n"
 
+# ping network
 for i in `seq $LO $HI`
 do
   is_alive_ping $i

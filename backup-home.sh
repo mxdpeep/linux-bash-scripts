@@ -13,11 +13,11 @@
 
 
 # CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
+
 P='/media/backup'
 
 
 # backup user's home folder
-
 cd ~
 sudo tar cvpzf "$P/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
 

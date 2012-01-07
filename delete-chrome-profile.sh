@@ -14,6 +14,8 @@
 
 # CAUTION - PROFILE WILL BE ERASED!
 
+
+# delete profile
 rm -rf ~/.config/google-chrome/Default
 
 echo -e "\nDone.\n"

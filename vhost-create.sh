@@ -20,31 +20,28 @@ WWW_ROOT=/home/www
 
 
 # check syntax
-
 if [ $# -eq 0 ]
 then
   echo -e "\nCreate virtual host configuration file.\n\nSyntax: $(basename $0) <domain>\n"
   exit 1
 fi
 
+
+# create web folders
 DOMAIN=$1
-
-# create web folders and set rights
-
 sudo mkdir -p $WWW_ROOT/$DOMAIN
 sudo mkdir -p $WWW_ROOT/dev.$DOMAIN
 sudo mkdir -p $WWW_ROOT/beta.$DOMAIN
-
+# set owner
 sudo chown www-data:www-data $WWW_ROOT/$DOMAIN
 sudo chown www-data:www-data $WWW_ROOT/dev.$DOMAIN
 sudo chown www-data:www-data $WWW_ROOT/beta.$DOMAIN
-
+# set rights
 sudo chmod 0755 $WWW_ROOT/$DOMAIN
 sudo chmod 0755 $WWW_ROOT/dev.$DOMAIN
 sudo chmod 0755 $WWW_ROOT/beta.$DOMAIN
 
-# setup content
-
+# setup content for naked domain
 CONF1="<VirtualHost *:80>\n\
   ServerName $DOMAIN\n\
   ServerAlias www.$DOMAIN\n\
@@ -60,6 +57,7 @@ CONF1="<VirtualHost *:80>\n\
   CustomLog /var/log/apache2/$DOMAIN-access.log combined\n\
 </VirtualHost>"
 
+# setup content for development subdomain
 CONF2="<VirtualHost *:80>\n\
   ServerName dev.$DOMAIN\n\
   ServerAdmin $ADMIN\n\
@@ -74,6 +72,7 @@ CONF2="<VirtualHost *:80>\n\
   CustomLog /var/log/apache2/dev.$DOMAIN-access.log combined\n\
 </VirtualHost>"
 
+# setup content for beta subdomain
 CONF3="<VirtualHost *:80>\n\
   ServerName beta.$DOMAIN\n\
   ServerAdmin $ADMIN\n\
@@ -89,16 +88,13 @@ CONF3="<VirtualHost *:80>\n\
 </VirtualHost>"
 
 # write files
-
 sudo echo -e $CONF1 > $VHOST_CONF/$DOMAIN
 sudo echo -e $CONF2 > $VHOST_CONF/dev.$DOMAIN
 sudo echo -e $CONF3 > $VHOST_CONF/beta.$DOMAIN
 
 sync
 
-
-# add sites and reload Apache
-
+# add all sites and reload Apache
 sudo a2ensite $DOMAIN dev.$DOMAIN beta.$DOMAIN
 sudo /etc/init.d/apache2 graceful
 

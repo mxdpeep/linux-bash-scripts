@@ -13,20 +13,19 @@
 
 
 # check syntax
-
 if [ -z "$1" ]
 then
   echo -e "\nCreates new git repository.\n\nSyntax: $(basename $0) <name>\n"
   exit 1
 fi
 
+# check for installed app
 which git >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo "Installing git-core package..."
   sudo apt-get install git-core
 fi
-
 which git >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -34,6 +33,7 @@ then
   exit 1
 fi
 
+# git initialization
 if [ -d "$1.git" ]
 then
   echo -e "Invalid folder: $1.git"

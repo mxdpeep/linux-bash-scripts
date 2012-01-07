@@ -13,7 +13,6 @@
 
 
 # check syntax
-
 if [ $# -eq 0 ]
 then
   echo -e "\nFix filenames recursively.\n\nSyntax: $(basename $0) <folder>\n"
@@ -32,14 +31,12 @@ else
 fi
 
 # check for installed app
-
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
   echo "Installing detox package..."
   sudo apt-get install detox
 fi
-
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -48,7 +45,6 @@ then
 fi
 
 # recurse any folders and execute detox 1st round
-
 for i in *
 do
   if [ -d "$i" ]
@@ -63,7 +59,6 @@ do
 done
 
 # recurse any folders and execute detox 2nd round
-
 for i in *
 do
   if [ -d "$i" ]

@@ -12,7 +12,6 @@
 
 
 # check for installed app
-
 which skype >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -21,7 +20,6 @@ then
 fi
 
 # run Skype incl. video
-
 LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so skype
 
 echo -e "\nDone.\n"

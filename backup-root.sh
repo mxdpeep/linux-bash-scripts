@@ -13,11 +13,11 @@
 
 
 # CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
+
 P='/media/backup'
 
 
 # backup root filesystem
-
 cd /
 sudo tar cvpzf "$P/root-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/proc --exclude=/media --exclude=/lost+found --exclude=/sys --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/dev /
 

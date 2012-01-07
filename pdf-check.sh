@@ -13,7 +13,6 @@
 
 
 # check syntax
-
 if [ $# -eq 0 ]
 then
   echo -e "\nCheck validity of PDF files recursively.\n\nSyntax: $(basename $0) <folder>\n"
@@ -31,7 +30,6 @@ then
 fi
 
 # check for installed app
-
 which pdfinfo >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -46,7 +44,6 @@ then
 fi
 
 # recurse any directories first
-
 for i in *
 do
   if [ -d "$i" ]
@@ -57,7 +54,6 @@ do
 done
 
 # check pdf files (or recurse .pdf directories)
-
 for i in *.pdf
 do
   if [ -d "$i" ]
