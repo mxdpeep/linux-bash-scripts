@@ -19,13 +19,11 @@ P='/media/backup'
 
 # CHANGE THIS TO MATCH YOUR BACKUP MEDIA LOCATION!
 
-WWW='~/www'
-
+cd ~/www
 
 # backup if www folder exists
 if [ -d "$P" ]
 then
-  cd $WWW
   sudo tar cvpzf "$P/www-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
 else
   echo -e "Invalid folder: $P\n"
