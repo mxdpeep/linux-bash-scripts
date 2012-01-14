@@ -17,9 +17,15 @@
 P='/media/backup'
 
 
-# backup user's home folder
-cd ~
-sudo tar cvpzf "$P/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system .
+# run
+if [ -d "$P" ]
+then
+  cd ~
+  sudo tar cvpzf "$P/home-backup-`date +%d.%m.%Y`.tar.gz" --one-file-system --exclude=/.cache --exclude-caches-all .
+else
+  echo -e "Invalid folder: $P\n"
+  exit 1
+fi
 
 echo -e "\nDone.\n"
 exit 0

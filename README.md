@@ -23,7 +23,7 @@ backup-www.sh
 -------------
 
 Backup ~/www folder to an external media, useful for weekly backups.
-EDIT BACKUP PATH VARIABLE BEFORE FIRST USE!!!
+EDIT BACKUP AND WEB FOLDER PATH VARIABLES BEFORE FIRST USE!!!
 
 
 cert-delete.sh
@@ -58,9 +58,9 @@ Try to fix current user's Chrome profile after Google Chrome crash.
 
 
 flac2mp3.sh
----------------------
+-----------
 
-Recompress flac files to MP3 format recursively. You must remove *.flac files manually after compression!
+Recompress FLAC to MP3 format recursively. You must remove *.flac files manually after compression!
 
 
 git-create.sh
