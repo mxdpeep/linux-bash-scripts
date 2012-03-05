@@ -22,7 +22,11 @@ else
   then
     if [ -d "$1" ]
     then
-      cd "$1"
+      cd "$1" 2>/dev/null
+      if [ $? -ne 0 ]
+      then
+        exit 1
+      fi
     else
       echo "Invalid folder: $1"
       exit 1
