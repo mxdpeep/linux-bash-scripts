@@ -2,7 +2,7 @@ Linux shell scripts collection
 ==============================
 
 
-Feel free to contact me with tips, additions or bug fixies at <git@mxd.cz>.
+Feel free to contact me with tips, additions or bug fixes at <git@mxd.cz>.
 
 
 backup-home.sh
@@ -122,6 +122,7 @@ suspend.sh
 Make your PC sleep.
 ATTENTION WHEN CONNECTED REMOTELY!!!
 
+
 svn-create.sh
 -------------
 
@@ -132,15 +133,12 @@ EDIT SVN PATH VARIABLE BEFORE FIRST USE!!!
 vhost-create.sh
 ---------------
 
-Setup 3 virtual hosts (production, beta and dev) and configuration files for a domain.
+Setup 3 virtual hosts (production, beta and dev) and Apache configuration files for a domain.
 EDIT VARIABLES BEFORE FIRST USE!!!
 
 
-
+Filip Oščádal <filip@mxd.cz> - <http://mxd.cz/>.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
-
-Filip Oscadal <filip@mxd.cz> http://mxd.cz/
-No Rights Reserved 2012, feel free to modify, use and distribute.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
