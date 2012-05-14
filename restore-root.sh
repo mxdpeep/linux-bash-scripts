@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Filip Oščádal <filip@mxd.cz> - <http://mxd.cz/>.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+# Written by Filip Oščádal <filip@mxd.cz> <http://mxd.cz/>
+# Distributed under license GPLv3+ GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
