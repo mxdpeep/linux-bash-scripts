@@ -13,7 +13,7 @@
 # check syntax
 if [ $# -eq 0 ]
 then
-  echo -e "\nRecompress flac files to MP3 format recursively.\n\nSyntax: $(basename $0) <folder>\n"
+  echo -e "\nConvert FLAC files to MP3 recursively.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
 if [ -n "$1" ]
@@ -37,13 +37,20 @@ fi
 which flac >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo -e "flac CLI tool is not installed!\n"
+  echo -e "Flac is not installed!\n"
   exit 1
+fi
+# check for installed app
+which lame >/dev/null 2>&1
+if [ $? -eq 1 ]
+then
+  echo -e "Installing lame package...\n"
+  sudo apt-get install lame
 fi
 which lame >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo -e "lame encoder is not installed!\n"
+  echo -e "Lame is not installed!\n"
   exit 1
 fi
 
@@ -57,7 +64,7 @@ do
   fi
 done
 
-# decompress .flac files and then compress .wav to .mp3 (or recurse .pdf directories)
+# check pdf files (or recurse .pdf directories)
 for i in *.flac
 do
   if [ -d "$i" ]
@@ -67,9 +74,9 @@ do
   fi
   if [ -f "$i" ]
   then
-    /usr/bin/flac -df "$i"
-    /usr/bin/lame "${i%.flac}.wav" "${i%.flac}.mp3"
-    rm "${i%.flac}.wav"
+    echo "Converting: $i"
+    /usr/bin/flac -d "$i"
+	/usr/bin/lame -b 320 "${i%.flac}.wav" "${i%.flac}.mp3"
   fi
 done
 
