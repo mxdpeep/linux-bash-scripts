@@ -64,7 +64,7 @@ do
   fi
 done
 
-# check pdf files (or recurse .pdf directories)
+# convert recursively
 for i in *.flac
 do
   if [ -d "$i" ]
@@ -76,7 +76,7 @@ do
   then
     echo "Converting: $i"
     /usr/bin/flac -d "$i"
-	/usr/bin/lame -b 320 "${i%.flac}.wav" "${i%.flac}.mp3"
+    /usr/bin/lame -b 320 "${i%.flac}.wav" "${i%.flac}.mp3"
   fi
 done
 
