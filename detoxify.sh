@@ -9,71 +9,41 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
-
 # check syntax
 if [ $# -eq 0 ]
 then
-  echo -e "\nFix filenames recursively.\n\nSyntax: $(basename $0) <folder>\n"
-  exit 1
+	echo -e "\nFix filenames recursively.\n\nSyntax: $(basename $0) <folder>\n"
+	exit 1
 else
-  if [ -n "$1" ]
-  then
-    if [ -d "$1" ]
-    then
-      cd "$1" 2>/dev/null
-      if [ $? -ne 0 ]
-      then
-        exit 1
-      fi
-    else
-      echo "Invalid folder: $1"
-      exit 1
-    fi
-  fi
+	if [ -n "$1" ]
+	then
+		if [ -d "$1" ]
+		then
+			echo "Processing folder: $1"
+		else
+			echo "Invalid folder: $1"
+			exit 1
+		fi
+	fi
 fi
 
 # check for installed app
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Installing detox package..."
-  sudo apt-get install detox
+	echo "Installing detox package..."
+	sudo apt-get install detox
 fi
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
-  echo "Detox is not installed!"
-  exit 1
+	echo "Detox is not installed!"
+	exit 1
 fi
 
-# recurse any folders and execute detox 1st round
-for i in *
-do
-  if [ -d "$i" ]
-  then
-    echo "Recursing into directory: $i"
-    $0 "$i"
-  fi
-  if [ -f "$i" ]
-  then
-    detox -s utf_8 "$i" >/dev/null 2>&1
-  fi
-done
-
-# recurse any folders and execute detox 2nd round
-for i in *
-do
-  if [ -d "$i" ]
-  then
-    echo "Recursing into directory: $i"
-    $0 "$i"
-  fi
-  if [ -f "$i" ]
-  then
-    detox -s lower "$i" >/dev/null 2>&1
-  fi
-done
-
+# execute detox
+detox --special --remove-trailing -r -v -s utf_8 "$1"
+detox --special --remove-trailing -r -v -s lower "$1"
 sync
 
 echo -e "\nDone.\n"
