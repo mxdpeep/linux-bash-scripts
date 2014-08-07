@@ -1,15 +1,9 @@
 #!/bin/bash
 
-# Written by Filip Oščádal <filip@mxd.cz> <http://mxd.cz/>
-# Distributed under license GPLv3+ GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# Author: Fred Brooker <original@fredbrooker.cz>
+# URL: http://fredbrooker.cz/
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY. YOU USE AT YOUR OWN RISK. THE AUTHOR
-# WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY
-# OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
-# See the GNU General Public License for more details.
 
-# check syntax
 if [ $# -eq 0 ]
 then
 	echo -e "\nFix filenames recursively.\n\nSyntax: $(basename $0) <folder>\n"
@@ -27,7 +21,6 @@ else
 	fi
 fi
 
-# check for installed app
 which detox >/dev/null 2>&1
 if [ $? -eq 1 ]
 then
@@ -41,7 +34,6 @@ then
 	exit 1
 fi
 
-# execute detox
 detox --special --remove-trailing -r -v -s utf_8 "$1"
 detox --special --remove-trailing -r -v -s lower "$1"
 sync
