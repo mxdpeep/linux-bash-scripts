@@ -14,6 +14,13 @@ proxyset=$http_proxy
 
 #get credentials
 
+#get number of arguments inserted
+
+#if 3, create proxy string
+
+#if 5, create proxy string, with auth
+
+#else, get variables in shell script
 #THIS ARE THE VARIABLES THAT HAVE TO BE CHANGED.
 proxy="proxy.yoursite.com"
 port="3128"
