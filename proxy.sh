@@ -52,7 +52,7 @@ setenv(){
 
 setfile(){
 	#edit info in the file
-	echo "Acquire::http::proxy \"$proxy\";\nAcquire::ftp::proxy \"$proxy\";\nAcquire::https::proxy \"$proxy\";" | sudo tee /etc/apt/apt.conf.d/95Proxies
+	echo "Acquire::http::proxy \"$proxy\";\nAcquire::ftp::proxy \"$proxy\";\nAcquire::https::proxy \"$proxy\";" | sudo tee /etc/apt/apt.conf.d/95proxies
 }
 
 removeproxy(){
