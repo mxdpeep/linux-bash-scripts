@@ -73,6 +73,7 @@ removeenv(){
 }
 
 removefile(){
+	sudo bash -c "rm /etc/apt/apt.conf.d/95proxies"
 	sudo bash -c "rm /etc/apt/apt.conf.d/95Proxies"
 }
 
