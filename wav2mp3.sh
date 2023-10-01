@@ -1,0 +1,47 @@
+#!/bin/bash
+# @author Fred Brooker <git@gscloud.cz>
+
+if [ $# -eq 0 ]; then
+  echo -e "\nConvert WAV files to MP3 recursively.\n\nSyntax: $(basename $0) <folder>\n"
+  exit 1
+fi
+if [ -n "$1" ]; then
+  if [ -d "$1" ]; then
+    cd "$1"
+  else
+    echo "Invalid folder: $1"
+    exit 1
+  fi
+fi
+
+which lame >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "Installing lame"
+  sudo apt-get install -yqq lame
+fi
+which lame >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "ERROR: lame is not installed"
+  exit 1
+fi
+
+for i in *
+do
+  if [ -d "$i" ]; then
+    echo "Recursing into directory: $i"
+    $0 "$i"
+  fi
+done
+
+for i in *.wav
+do
+  if [ -f "$i" ]; then
+    echo "Converting: $i"
+    lame -h --preset extreme "$i" "${i%.wav}.mp3"
+    rm -f "$i"
+  fi
+done
+
+echo -e "Done.\n"
+
+exit 0
