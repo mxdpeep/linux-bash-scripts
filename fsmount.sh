@@ -34,7 +34,7 @@ connect MXD mxd:
 connect GSC gsc:
 connect HMC hmc:
 
-connect INGAME ingame:
+#connect INGAME ingame:
 connect SFX sfx:
 
 connect KONTAKT1 kontakt1:

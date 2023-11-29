@@ -3,13 +3,19 @@
 
 which ffmpeg >/dev/null 2>&1
 if [ $? -eq 1 ]; then
-  echo "Installing ffmpeg + lame"
-  sudo apt-get install -yqq ffmpeg lame
+  echo "Installing ffmpeg"
+  sudo apt-get install -yqq ffmpeg
 fi
 which ffmpeg >/dev/null 2>&1
 if [ $? -eq 1 ]; then
   echo -e "ERROR: ffmpeg is not installed!\n"
   exit 1
+fi
+
+which lame >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "Installing lame"
+  sudo apt-get install -yqq lame
 fi
 which lame >/dev/null 2>&1
 if [ $? -eq 1 ]; then

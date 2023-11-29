@@ -18,7 +18,7 @@ disconnect MXD
 disconnect GSC
 disconnect HMC
 
-disconnect INGAME
+#disconnect INGAME
 disconnect SFX
 
 disconnect KONTAKT1

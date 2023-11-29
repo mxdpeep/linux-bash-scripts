@@ -13,19 +13,21 @@
 define("DS", DIRECTORY_SEPARATOR);
 
 $map = [
+    "┬" => '',
+    "║" => '',
     "'" => '',
     '"' => '',
     ' ' => '_',
     '!' => '',
     '#' => '',
     '&' => '',
-    '(' => '',
-    ')' => '',
+    '(' => '_',
+    ')' => '_',
     '+' => '-',
     ',' => '',
     '@' => '',
-    '[' => '',
-    ']' => '',
+    '[' => '_',
+    ']' => '_',
     'á' => 'a',
     'č' => 'c',
     'é' => 'e',
@@ -145,16 +147,18 @@ do {
     arsort($dirs);
     if (count($dirs)) {
         $fixes = count($dirs);
+
         echo "\nFixing folders ($fixes)\n";
+        $fails = 0;
         foreach ($dirs??=[] as $k => $v) {
             if ($paths[$k] == "") {
                 $paths[$k] = ".";
             }
             echo "> $paths[$k]/$names2[$k]\n";
-            // do not cycle if rename fails
             if (!@rename("$paths[$k]/$names1[$k]", "$paths[$k]/$names2[$k]")) {
-                echo "\n! FAILED !\n";
-                exit(1);
+                $fails++;
+                echo "\n! {$fails}. FAILED: {$paths[$k]}/{$names1[$k]}"
+                    . " -> {$paths[$k]}/{$names2[$k]}\n";
             }
         }
     } else {
@@ -201,4 +205,4 @@ foreach ($iterator = new RecursiveIteratorIterator(
 }
 
 echo "\nDone.\n\n";
-exit(0);
+exit;
