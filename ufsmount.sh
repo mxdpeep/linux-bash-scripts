@@ -18,17 +18,18 @@ disconnect MXD
 disconnect GSC
 disconnect HMC
 
+#disconnect HMCSFX
 #disconnect INGAME
-disconnect SFX
+#disconnect SFX
 
-disconnect KONTAKT1
-disconnect KONTAKT2
-disconnect KONTAKT3
+#disconnect KONTAKT1
+#disconnect KONTAKT2
+#disconnect KONTAKT3
 
-disconnect SAMPLES1
-disconnect SAMPLES2
-disconnect SAMPLES3
+#disconnect SAMPLES1
+#disconnect SAMPLES2
+#disconnect SAMPLES3
 
-disconnect STORAGEBOX storagebox:
+#disconnect STORAGEBOX storagebox:
 
 exit 0
