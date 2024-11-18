@@ -7,6 +7,7 @@ export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/scripts
 
 function disconnect {
   cd ~/
+  echo $1
   fusermount -u $1
 }
 
@@ -32,4 +33,4 @@ disconnect HMC
 
 #disconnect STORAGEBOX storagebox:
 
-exit 0
+rm -rf /1TB/rclone/*

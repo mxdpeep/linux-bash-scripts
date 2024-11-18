@@ -21,5 +21,3 @@ if [ -f "/tmp/cf-zones.txt" ]; then r=$(cat "/tmp/cf-zones.txt"); else
 fi
 
 echo $r|jq ".result[].name"|sort|sed 's/"//g'
-
-exit 0

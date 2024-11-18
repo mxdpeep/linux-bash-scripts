@@ -8,9 +8,6 @@ cd $ABSDIR
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin
 export PATH=$PATH:/root/bin:/root/go/bin:/root/.cargo/bin:/root/scripts
 
-iptables -t nat -L -n | grep 6377
-iptables -t nat -L -n | grep 6378
-
 function rcli1 {
   docker exec -it redisearch redis-cli $1
 }

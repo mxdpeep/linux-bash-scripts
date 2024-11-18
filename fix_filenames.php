@@ -1,6 +1,6 @@
 <?php
 /**
- * Fix filenames in a directory recursively
+ * Recursively fix files and directory names
  * php version 8.2
  *
  * @category Helper
@@ -10,32 +10,42 @@
  * @link     None
  */
 
+if (file_exists('.bashrc')) {
+    die("EMERGENCY STOP!!!");
+}
+
 define("DS", DIRECTORY_SEPARATOR);
 
 $map = [
+    "'" => '',
     "┬" => '',
     "║" => '',
-    "'" => '',
-    '"' => '',
     ' ' => '_',
     '!' => '',
+    '"' => '',
     '#' => '',
     '&' => '',
     '(' => '_',
     ')' => '_',
     '+' => '-',
     ',' => '',
+    ';' => '_',
     '@' => '',
+    'Ö' => 'O',
+    'Ü' => 'U',
     '[' => '_',
     ']' => '_',
+    '^' => '',
     'á' => 'a',
     'č' => 'c',
     'é' => 'e',
     'ě' => 'e',
     'í' => 'i',
+    'ö' => 'o',
     'ř' => 'r',
     'š' => 's',
     'ú' => 'u',
+    'ü' => 'u',
     'ý' => 'y',
     'ž' => 'z',
     '|' => '',
@@ -46,6 +56,8 @@ $map = [
     'Í' => 'I',
     'Ó' => 'O',
     'Ú' => 'U',
+    'Û' => 'U',
+    'Ü' => 'U',
     'Ý' => 'Y',
     'à' => 'a',
     'á' => 'a',
@@ -57,6 +69,9 @@ $map = [
     'ö' => 'o',
     'ø' => 'o',
     'ú' => 'u',
+    'û' => 'u',
+    'ü' => 'u',
+    'ü' => 'u',
     'ý' => 'y',
     'Ć' => 'C',
     'ć' => 'c',
@@ -99,6 +114,9 @@ $map = [
     '：' => '-',
     '？' => '',
     '｜' => '-',
+    '..' => '.',
+    '--' => '-',
+    '__' => '_',
 ];
 
 $work = true;
@@ -111,7 +129,7 @@ do {
 
     clearstatcache();
 
-    echo "Reading folders\n";
+    echo "Reading folders...\n";
     foreach ($iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator(
             "./",
@@ -148,7 +166,7 @@ do {
     if (count($dirs)) {
         $fixes = count($dirs);
 
-        echo "\nFixing folders ($fixes)\n";
+        echo "\nFixing folders ($fixes)...\n";
         $fails = 0;
         foreach ($dirs??=[] as $k => $v) {
             if ($paths[$k] == "") {
@@ -166,7 +184,7 @@ do {
     }
 } while ($work);
 
-echo "\nFixing files\n";
+echo "\nFixing files...\n";
 foreach ($iterator = new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator(
         "./",
@@ -187,6 +205,7 @@ foreach ($iterator = new RecursiveIteratorIterator(
     $fixname = trim($fixname, " _-.");
     $fixname = preg_replace('!_+!', '_', $fixname);
     $fixname = preg_replace('!-+!', '-', $fixname);
+    $fixname = str_replace("..", '.', $fixname);
     if ($fixname == 'concat') {
         $fixname = '.concat';
     }
@@ -205,4 +224,3 @@ foreach ($iterator = new RecursiveIteratorIterator(
 }
 
 echo "\nDone.\n\n";
-exit;

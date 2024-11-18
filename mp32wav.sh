@@ -5,11 +5,12 @@ if [ $# -eq 0 ]; then
   echo -e "\nConvert MP3 files to WAV recursively.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
+
 if [ -n "$1" ]; then
   if [ -d "$1" ]; then
     cd "$1"
   else
-    echo -e "Invalid folder: $1\n"
+    echo "Invalid folder: $1"
     exit 1
   fi
 fi
@@ -19,6 +20,7 @@ if [ $? -eq 1 ]; then
   echo "Installing ffmpeg"
   sudo apt-get install -yqq ffmpeg
 fi
+
 which ffmpeg >/dev/null 2>&1
 if [ $? -eq 1 ]; then
   echo "ERROR: ffmpeg is not installed"
@@ -35,11 +37,14 @@ done
 for i in *.mp3; do
   if [ -f "$i" ]; then
     echo "Converting: $i"
-    ffmpeg -i "${i%.mp3}.mp3" "${i%.mp3}.wav"
-    rm -f "$i"
+    ffmpeg -i "$i" "${i%.mp3}.wav"
+    if [ $? -eq 0 ]; then
+      echo "Successfully converted: $i"
+      rm -f "$i"
+    else
+      echo "Failed to convert: $i"
+    fi
   fi
 done
 
 echo -e "Done.\n"
-
-exit 0

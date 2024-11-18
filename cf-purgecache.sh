@@ -68,5 +68,3 @@ do
 done
 
 if [ "$dom" != "all" ]; then echo "Not found!"; exit 1; fi
-
-exit 0

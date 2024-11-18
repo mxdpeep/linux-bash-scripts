@@ -47,5 +47,3 @@ connect HMC hmc:
 #connect SAMPLES3 samples3:
 
 #connect STORAGEBOX storagebox:
-
-exit 0

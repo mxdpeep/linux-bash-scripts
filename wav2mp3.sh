@@ -5,6 +5,7 @@ if [ $# -eq 0 ]; then
   echo -e "\nConvert WAV files to MP3 recursively.\n\nSyntax: $(basename $0) <folder>\n"
   exit 1
 fi
+
 if [ -n "$1" ]; then
   if [ -d "$1" ]; then
     cd "$1"
@@ -19,6 +20,7 @@ if [ $? -eq 1 ]; then
   echo "Installing lame"
   sudo apt-get install -yqq lame
 fi
+
 which lame >/dev/null 2>&1
 if [ $? -eq 1 ]; then
   echo "ERROR: lame is not installed"
@@ -38,10 +40,13 @@ do
   if [ -f "$i" ]; then
     echo "Converting: $i"
     lame -h --preset extreme "$i" "${i%.wav}.mp3"
-    rm -f "$i"
+    if [ $? -eq 0 ]; then
+      echo "Successfully converted: $i"
+      rm -f "$i"
+    else
+      echo "Failed to convert: $i"
+    fi
   fi
 done
 
 echo -e "Done.\n"
-
-exit 0

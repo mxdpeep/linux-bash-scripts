@@ -6,6 +6,7 @@ if [ $? -eq 1 ]; then
   echo "Installing ffmpeg"
   sudo apt-get install -yqq ffmpeg
 fi
+
 which ffmpeg >/dev/null 2>&1
 if [ $? -eq 1 ]; then
   echo -e "ERROR: ffmpeg is not installed!\n"
@@ -17,6 +18,7 @@ if [ $? -eq 1 ]; then
   echo "Installing lame"
   sudo apt-get install -yqq lame
 fi
+
 which lame >/dev/null 2>&1
 if [ $? -eq 1 ]; then
   echo -e "ERROR: lame is not installed!\n"
@@ -37,12 +39,13 @@ if [ ! -e ".concat" ]; then
       A=`du -sb "$i" | awk '{print $1}' | awk '{print int($1)}'` # folder size, integer
       B=`du -sb "$i.mp3" | awk '{print $1}' | awk '{print int($1)+10485760}'` # file size, integer + 10 MB
       if [ "$B" -gt "$A" ]; then
-        echo $i 🐱
+        echo "🆗 $i"
         continue
       else
-        echo "Deleting $i"
+        echo "🤯 $i failure"
+        rm -f "$i.mp3" >/dev/null 2>&1
+        rm -f "$i/.concat" >/dev/null 2>&1
         sleep 2
-        rm -f "$i.mp3"
       fi
     fi
 
@@ -65,15 +68,16 @@ if [ ! -e ".concat" ]; then
 
     # check for MP3s
     FILES=`ls *.mp3 2>/dev/null`
-    if [ -z "$FILES" ]; then echo "💀 no MP3 in $i"; cd ..; continue; fi
+    if [ -z "$FILES" ]; then echo "😵 missing MP3 in $i"; cd ..; continue; fi
 
     # create MP3
     echo -en "\n\nProcessing: $i\n\n"
-    sleep 2
     ls *.mp3 | perl -ne 'print "file $_"' > .files
     ffmpeg -y -f concat -i .files -c copy "../$i.mp3"
-    rm .files
-    touch .concat
+    if [ $? -eq 0 ]; then
+      touch .concat
+    fi
+    rm -f .files
     cd ..
 
     # check filesizes
@@ -81,12 +85,13 @@ if [ ! -e ".concat" ]; then
       A=`du -sb "$i" | awk '{print $1}' | awk '{print int($1)}'` # folder size, integer
       B=`du -sb "$i.mp3" | awk '{print $1}' | awk '{print int($1)+10485760}'` # file size, integer + 10 MB
       if [ "$B" -gt "$A" ]; then
-        echo $i 🐱
+        echo "🆗 $i"
         continue
       else
-        echo "Deleting $i ..."
-        sleep 5
-        rm -f "$i.mp3"
+        echo "🤯 $i failure"
+        rm -f "$i.mp3" >/dev/null 2>&1
+        rm -f "$i/.concat" >/dev/null 2>&1
+        sleep 2
       fi
     fi
   done
