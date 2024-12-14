@@ -27,10 +27,10 @@ disconnect HMC
 #disconnect KONTAKT2
 #disconnect KONTAKT3
 
-#disconnect SAMPLES1
-#disconnect SAMPLES2
-#disconnect SAMPLES3
+disconnect SAMPLES1
+disconnect SAMPLES2
+disconnect SAMPLES3
 
-#disconnect STORAGEBOX storagebox:
+disconnect STORAGEBOX storagebox:
 
 rm -rf /1TB/rclone/*

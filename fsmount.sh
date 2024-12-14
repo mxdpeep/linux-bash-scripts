@@ -42,8 +42,8 @@ connect HMC hmc:
 #connect KONTAKT2 kontakt2:
 #connect KONTAKT3 kontakt3:
 
-#connect SAMPLES1 samples1:
-#connect SAMPLES2 samples2:
-#connect SAMPLES3 samples3:
+connect SAMPLES1 samples1:
+connect SAMPLES2 samples2:
+connect SAMPLES3 samples3:
 
-#connect STORAGEBOX storagebox:
+connect STORAGEBOX storagebox:

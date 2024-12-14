@@ -6,6 +6,11 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
+which flac >/dev/null 2>&1 || (echo "Installing flac" && sudo apt-get install -yqq flac)
+which flac >/dev/null 2>&1 || (echo "ERROR: flac is not installed" && exit 1)
+which lame >/dev/null 2>&1 || (echo "Installing lame" && sudo apt-get install -yqq lame)
+which lame >/dev/null 2>&1 || (echo "ERROR: lame is not installed" && exit 1)
+
 if [ -n "$1" ]; then
   if [ -d "$1" ]; then
     cd "$1"
@@ -13,30 +18,6 @@ if [ -n "$1" ]; then
     echo "Invalid folder: $1"
     exit 1
   fi
-fi
-
-which flac >/dev/null 2>&1
-if [ $? -eq 1 ]; then
-  echo "Installing flac"
-  sudo apt-get install -yqq flac
-fi
-
-which flac >/dev/null 2>&1
-if [ $? -eq 1 ]; then
-  echo "ERROR: flac is not installed"
-  exit 1
-fi
-
-which lame >/dev/null 2>&1
-if [ $? -eq 1 ]; then
-  echo "Installing lame"
-  sudo apt-get install -yqq lame
-fi
-
-which lame >/dev/null 2>&1
-if [ $? -eq 1 ]; then
-  echo "ERROR: lame is not installed"
-  exit 1
 fi
 
 for i in *

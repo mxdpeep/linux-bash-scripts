@@ -159,10 +159,9 @@ do {
     $paths = [];
     $names1 = [];
     $names2 = [];
-
     clearstatcache();
-
     echo "Reading folders ...\n";
+
     foreach ($iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator(
             "./",
@@ -182,7 +181,6 @@ do {
         $fixname = str_replace("_-_", '-', $fixname);
         $fixname = trim($fixname, " _-.");
         $fixname = preg_replace('!_+!', '_', $fixname);
-
         if ($item->isDir()) {
             if ($name != $fixname) {
                 $dirs[$sub] = substr_count($sub, "/");
@@ -200,7 +198,6 @@ do {
 
     if (count($dirs)) {
         $fixes = count($dirs);
-
         echo "\nFixing folders ($fixes) ...\n";
         $fails = 0;
         foreach ($dirs??=[] as $k => $v) {
