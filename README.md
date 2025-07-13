@@ -57,6 +57,7 @@ Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud
 ## System
 
 * clear_journal.sh
+* editdeb.sh
 * fix_filenames.php
 * nvidia-check.sh
 * prompt_update.sh
