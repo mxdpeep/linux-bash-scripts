@@ -1,4 +1,4 @@
-# Linux shell scripts collection
+# Linux Shell Scripts Collection
 
 Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud.cz](https://gscloud.cz)
 
@@ -10,14 +10,7 @@ Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud
 * astatus.sh
 * astop.sh
 
-## Movie manipulation
-
-* addsubtitles.sh
-* normalize.sh
-* twicevolume.sh
-* volumeup.sh
-
-## Audio manipulation
+## Audio Manipulation
 
 * concat_mp3.sh
 * flac2mp3.sh
@@ -31,7 +24,7 @@ Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud
 
 ## Cloudflare
 
-* _cf_key.sh
+* _cf_key.sh *(configuration - put in your Cloudflare token)*
 * cf-add-a_record_nonproxied.sh
 * cf-add-a_record_proxied.sh
 * cf-add-subdomain.sh
@@ -48,14 +41,24 @@ Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud
 * install-insight.sh
 * install-redis.sh
 
-## Filesystem
+## Movie Manipulation
 
-* fix_filenames.php
-* clear_journal.sh
-* prompt_update.sh
+* addsubtitles.sh
+* normalize.sh
+* twicevolume.sh
+* volumeup.sh
 
 ## Redis
 
 * check_redis.sh
 * connect-redis.sh
 * redis-status.sh
+
+## System
+
+* clear_journal.sh
+* fix_filenames.php
+* nvidia-check.sh
+* prompt_update.sh
+* rm-linux-5.15.sh
+* rm-nvidia.sh
