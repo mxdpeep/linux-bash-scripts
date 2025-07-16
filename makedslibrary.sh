@@ -1,5 +1,6 @@
 #!/bin/bash
-# Google Gemini 2025-07-13
+# @author Fred Brooker <git@gscloud.cz>
+# Google Gemini 2.5 Flash - 2025-07-13
 
 # Enable nullglob: If no files match the pattern, the glob expands to nothing,
 # preventing the script from trying to process a literal "*.dsbundle".

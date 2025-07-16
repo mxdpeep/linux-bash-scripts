@@ -43,7 +43,7 @@ Author: Fred Brooker 💌 <git@gscloud.cz> ⛅️ GS Cloud Ltd. [https://gscloud
 * docker-limits.sh
 * docker-remove-dangling.sh
 * docker-update.sh
-* ffmpeg.sh *(system package replacement)*
+* ffmpeg.sh *(ffmpeg replacement, set CPU load to your own)*
 * install-insight.sh
 * install-redis.sh
 

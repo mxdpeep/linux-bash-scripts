@@ -1,4 +1,6 @@
 #!/bin/bash
+# @author Fred Brooker <git@gscloud.cz>
+# Google Gemini 2.5 Flash - 2025-07-15
 
 # Function to count zero-length files in a .dslibrary archive
 count_zero_length_files_in_archive() {
